@@ -4,11 +4,11 @@
         <title>Zen Sounds</title>
         <item>
             <title>1.1.2</title>
-            <pubDate>Fri, 31 May 2024 11:42:30 +0530</pubDate>
+            <pubDate>Fri, 31 May 2024 12:20:16 +0530</pubDate>
             <sparkle:version>1.1.2</sparkle:version>
             <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/arunyagoojar/Zen-Sounds-App/releases/download/v1.1.2/Zen.Sounds.dmg" length="52282397" type="application/octet-stream" sparkle:edSignature="ektv0qKx2BV8C+MGfzC7D68xVPxOwQfLewu7olo1wtA2vcdKOVOX1wxPh6bsViR5GDNoi0SsqAEXVdtL+VZMBw=="/>
+            <enclosure url="https://github.com/arunyagoojar/Zen-Sounds-App/releases/download/v1.1.2/Zen.Sounds.dmg" length="52280561" type="application/octet-stream" sparkle:edSignature="kUGawhK91C46Vx/F2eImaOyTAI8n2oOYmXZnXuFmu6n5ikJn0XFPMY70URtd/PhQAPls+jHk0KD/KVqmevQnBg=="/>
         </item>
     </channel>
 </rss>
