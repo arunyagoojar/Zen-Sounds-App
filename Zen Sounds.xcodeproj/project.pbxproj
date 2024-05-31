@@ -1,0 +1,615 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2300E9122BEFD1240092F2D5 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 2300E9112BEFD1240092F2D5 /* data.json */; };
+		2300E9132BEFD1240092F2D5 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 2300E9112BEFD1240092F2D5 /* data.json */; };
+		2300E9142BEFD1240092F2D5 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 2300E9112BEFD1240092F2D5 /* data.json */; };
+		232A75552BF5041600EDA65D /* ReadDataJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A75542BF5041600EDA65D /* ReadDataJSON.swift */; };
+		23571CA92BEE199C00722844 /* Zen_SoundsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23571CA82BEE199C00722844 /* Zen_SoundsApp.swift */; };
+		23571CAB2BEE199C00722844 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23571CAA2BEE199C00722844 /* ContentView.swift */; };
+		23571CAD2BEE199D00722844 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23571CAC2BEE199D00722844 /* Assets.xcassets */; };
+		23571CB02BEE199D00722844 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23571CAF2BEE199D00722844 /* Preview Assets.xcassets */; };
+		23571CBB2BEE199D00722844 /* Zen_SoundsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23571CBA2BEE199D00722844 /* Zen_SoundsTests.swift */; };
+		23571CC52BEE199D00722844 /* Zen_SoundsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23571CC42BEE199D00722844 /* Zen_SoundsUITests.swift */; };
+		23571CC72BEE199D00722844 /* Zen_SoundsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23571CC62BEE199D00722844 /* Zen_SoundsUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		23571CB72BEE199D00722844 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23571C9D2BEE199C00722844 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 23571CA42BEE199C00722844;
+			remoteInfo = "Zen Sounds";
+		};
+		23571CC12BEE199D00722844 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23571C9D2BEE199C00722844 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 23571CA42BEE199C00722844;
+			remoteInfo = "Zen Sounds";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2300E9112BEFD1240092F2D5 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		232A75542BF5041600EDA65D /* ReadDataJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadDataJSON.swift; sourceTree = "<group>"; };
+		23571CA52BEE199C00722844 /* Zen Sounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Zen Sounds.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		23571CA82BEE199C00722844 /* Zen_SoundsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zen_SoundsApp.swift; sourceTree = "<group>"; };
+		23571CAA2BEE199C00722844 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		23571CAC2BEE199D00722844 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		23571CAF2BEE199D00722844 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		23571CB12BEE199D00722844 /* Zen_Sounds.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Zen_Sounds.entitlements; sourceTree = "<group>"; };
+		23571CB62BEE199D00722844 /* Zen SoundsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Zen SoundsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		23571CBA2BEE199D00722844 /* Zen_SoundsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zen_SoundsTests.swift; sourceTree = "<group>"; };
+		23571CC02BEE199D00722844 /* Zen SoundsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Zen SoundsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		23571CC42BEE199D00722844 /* Zen_SoundsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zen_SoundsUITests.swift; sourceTree = "<group>"; };
+		23571CC62BEE199D00722844 /* Zen_SoundsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zen_SoundsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		23571CA22BEE199C00722844 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23571CB32BEE199D00722844 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23571CBD2BEE199D00722844 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		23571C9C2BEE199C00722844 = {
+			isa = PBXGroup;
+			children = (
+				23571CA72BEE199C00722844 /* Zen Sounds */,
+				23571CB92BEE199D00722844 /* Zen SoundsTests */,
+				23571CC32BEE199D00722844 /* Zen SoundsUITests */,
+				23571CA62BEE199C00722844 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		23571CA62BEE199C00722844 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23571CA52BEE199C00722844 /* Zen Sounds.app */,
+				23571CB62BEE199D00722844 /* Zen SoundsTests.xctest */,
+				23571CC02BEE199D00722844 /* Zen SoundsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		23571CA72BEE199C00722844 /* Zen Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				2300E9112BEFD1240092F2D5 /* data.json */,
+				23571CA82BEE199C00722844 /* Zen_SoundsApp.swift */,
+				232A75542BF5041600EDA65D /* ReadDataJSON.swift */,
+				23571CAA2BEE199C00722844 /* ContentView.swift */,
+				23571CAC2BEE199D00722844 /* Assets.xcassets */,
+				23571CB12BEE199D00722844 /* Zen_Sounds.entitlements */,
+				23571CAE2BEE199D00722844 /* Preview Content */,
+			);
+			path = "Zen Sounds";
+			sourceTree = "<group>";
+		};
+		23571CAE2BEE199D00722844 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				23571CAF2BEE199D00722844 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		23571CB92BEE199D00722844 /* Zen SoundsTests */ = {
+			isa = PBXGroup;
+			children = (
+				23571CBA2BEE199D00722844 /* Zen_SoundsTests.swift */,
+			);
+			path = "Zen SoundsTests";
+			sourceTree = "<group>";
+		};
+		23571CC32BEE199D00722844 /* Zen SoundsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				23571CC42BEE199D00722844 /* Zen_SoundsUITests.swift */,
+				23571CC62BEE199D00722844 /* Zen_SoundsUITestsLaunchTests.swift */,
+			);
+			path = "Zen SoundsUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		23571CA42BEE199C00722844 /* Zen Sounds */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23571CCA2BEE199D00722844 /* Build configuration list for PBXNativeTarget "Zen Sounds" */;
+			buildPhases = (
+				23571CA12BEE199C00722844 /* Sources */,
+				23571CA22BEE199C00722844 /* Frameworks */,
+				23571CA32BEE199C00722844 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Zen Sounds";
+			packageProductDependencies = (
+			);
+			productName = "Zen Sounds";
+			productReference = 23571CA52BEE199C00722844 /* Zen Sounds.app */;
+			productType = "com.apple.product-type.application";
+		};
+		23571CB52BEE199D00722844 /* Zen SoundsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23571CCD2BEE199D00722844 /* Build configuration list for PBXNativeTarget "Zen SoundsTests" */;
+			buildPhases = (
+				23571CB22BEE199D00722844 /* Sources */,
+				23571CB32BEE199D00722844 /* Frameworks */,
+				23571CB42BEE199D00722844 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				23571CB82BEE199D00722844 /* PBXTargetDependency */,
+			);
+			name = "Zen SoundsTests";
+			productName = "Zen SoundsTests";
+			productReference = 23571CB62BEE199D00722844 /* Zen SoundsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		23571CBF2BEE199D00722844 /* Zen SoundsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23571CD02BEE199D00722844 /* Build configuration list for PBXNativeTarget "Zen SoundsUITests" */;
+			buildPhases = (
+				23571CBC2BEE199D00722844 /* Sources */,
+				23571CBD2BEE199D00722844 /* Frameworks */,
+				23571CBE2BEE199D00722844 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				23571CC22BEE199D00722844 /* PBXTargetDependency */,
+			);
+			name = "Zen SoundsUITests";
+			productName = "Zen SoundsUITests";
+			productReference = 23571CC02BEE199D00722844 /* Zen SoundsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		23571C9D2BEE199C00722844 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					23571CA42BEE199C00722844 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					23571CB52BEE199D00722844 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 23571CA42BEE199C00722844;
+					};
+					23571CBF2BEE199D00722844 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 23571CA42BEE199C00722844;
+					};
+				};
+			};
+			buildConfigurationList = 23571CA02BEE199C00722844 /* Build configuration list for PBXProject "Zen Sounds" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 23571C9C2BEE199C00722844;
+			packageReferences = (
+			);
+			productRefGroup = 23571CA62BEE199C00722844 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				23571CA42BEE199C00722844 /* Zen Sounds */,
+				23571CB52BEE199D00722844 /* Zen SoundsTests */,
+				23571CBF2BEE199D00722844 /* Zen SoundsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		23571CA32BEE199C00722844 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23571CB02BEE199D00722844 /* Preview Assets.xcassets in Resources */,
+				23571CAD2BEE199D00722844 /* Assets.xcassets in Resources */,
+				2300E9122BEFD1240092F2D5 /* data.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23571CB42BEE199D00722844 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2300E9132BEFD1240092F2D5 /* data.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23571CBE2BEE199D00722844 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2300E9142BEFD1240092F2D5 /* data.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		23571CA12BEE199C00722844 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23571CAB2BEE199C00722844 /* ContentView.swift in Sources */,
+				232A75552BF5041600EDA65D /* ReadDataJSON.swift in Sources */,
+				23571CA92BEE199C00722844 /* Zen_SoundsApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23571CB22BEE199D00722844 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23571CBB2BEE199D00722844 /* Zen_SoundsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23571CBC2BEE199D00722844 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23571CC72BEE199D00722844 /* Zen_SoundsUITestsLaunchTests.swift in Sources */,
+				23571CC52BEE199D00722844 /* Zen_SoundsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		23571CB82BEE199D00722844 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 23571CA42BEE199C00722844 /* Zen Sounds */;
+			targetProxy = 23571CB72BEE199D00722844 /* PBXContainerItemProxy */;
+		};
+		23571CC22BEE199D00722844 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 23571CA42BEE199C00722844 /* Zen Sounds */;
+			targetProxy = 23571CC12BEE199D00722844 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		23571CC82BEE199D00722844 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = NO;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		23571CC92BEE199D00722844 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = NO;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		23571CCB2BEE199D00722844 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Zen Sounds/Zen_Sounds.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Zen Sounds/Preview Content\"";
+				DEVELOPMENT_TEAM = Z7S5WL97VQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Zen Sounds";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "arunya.goojar.Zen-Sounds";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		23571CCC2BEE199D00722844 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Zen Sounds/Zen_Sounds.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Zen Sounds/Preview Content\"";
+				DEVELOPMENT_TEAM = Z7S5WL97VQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Zen Sounds";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "arunya.goojar.Zen-Sounds";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		23571CCE2BEE199D00722844 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "arunya.goojar.Zen-SoundsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zen Sounds.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Zen Sounds";
+			};
+			name = Debug;
+		};
+		23571CCF2BEE199D00722844 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "arunya.goojar.Zen-SoundsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zen Sounds.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Zen Sounds";
+			};
+			name = Release;
+		};
+		23571CD12BEE199D00722844 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "arunya.goojar.Zen-SoundsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Zen Sounds";
+			};
+			name = Debug;
+		};
+		23571CD22BEE199D00722844 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "arunya.goojar.Zen-SoundsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Zen Sounds";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		23571CA02BEE199C00722844 /* Build configuration list for PBXProject "Zen Sounds" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23571CC82BEE199D00722844 /* Debug */,
+				23571CC92BEE199D00722844 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23571CCA2BEE199D00722844 /* Build configuration list for PBXNativeTarget "Zen Sounds" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23571CCB2BEE199D00722844 /* Debug */,
+				23571CCC2BEE199D00722844 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23571CCD2BEE199D00722844 /* Build configuration list for PBXNativeTarget "Zen SoundsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23571CCE2BEE199D00722844 /* Debug */,
+				23571CCF2BEE199D00722844 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23571CD02BEE199D00722844 /* Build configuration list for PBXNativeTarget "Zen SoundsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23571CD12BEE199D00722844 /* Debug */,
+				23571CD22BEE199D00722844 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 23571C9D2BEE199C00722844 /* Project object */;
+}

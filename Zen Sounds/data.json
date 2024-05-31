@@ -1,0 +1,170 @@
+[
+  {
+    "title": "Blackbird Melody",
+    "location": "Spring Forest",
+    "imageName": "Blackbird",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Blackbird Melody.mp3"
+  },
+  {
+    "title": "River Serenity",
+    "location": "Riverside",
+    "imageName": "Riverside",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/River Serenity.mp3"
+  },
+  {
+    "title": "Winter Whispers",
+    "location": "Bulgaria",
+    "imageName": "Bulgaria",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Winter Whispers.mp3"
+  },
+  {
+    "title": "Campfire",
+    "location": "Mountain Retreat",
+    "imageName": "campfire",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Campfire.mp3"
+  },
+  {
+    "title": "Night Waves",
+    "location": "Tropical Beach",
+    "imageName": "night-beach",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Night Waves.mp3"
+  },
+  {
+    "title": "Snow Fall",
+    "location": "Manali, India",
+    "imageName": "manali",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Snow Fall.mp3"
+  },
+  {
+    "title": "Pacific Waves",
+    "location": "Enderts Beach, CA",
+    "imageName": "beach",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Pacific Waves.mp3"
+  },
+  {
+    "title": "Ocean Waves",
+    "location": "Hawaii",
+    "imageName": "ocean-waves",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Ocean Waves.mp3"
+  },
+  {
+    "title": "Sunrise",
+    "location": "Wadi Shab, Oman",
+    "imageName": "sunrise",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Sunrise.mp3"
+  },
+  {
+    "title": "The Library",
+    "location": "Greycott",
+    "imageName": "library",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/The Library.mp3"
+  },
+  {
+    "title": "Cafe Study Session",
+    "location": "Cafe",
+    "imageName": "cafe",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Cafe Study Session.mp3"
+  },
+  {
+    "title": "Flight",
+    "location": "White Noise",
+    "imageName": "plane",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/In-Flight.mp3"
+  },
+  {
+    "title": "Written On The Sky",
+    "location": "stratosphere",
+    "imageName": "sky-space",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Written On The Sky.mp3"
+  },
+  {
+    "title": "Morning Coffee",
+    "location": "Lo-Fi",
+    "imageName": "lofi",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Morning Coffee.mp3"
+  },
+  {
+    "title": "Interstellar",
+    "location": "Space",
+    "imageName": "interstellar",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Interstellar.mp3"
+  },
+  {
+    "title": "Cyberpunk",
+    "location": "Blade Runner",
+    "imageName": "blade-runner",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Cyberpunk.mp3"
+  },
+  {
+    "title": "Alien Arrival",
+    "location": "Arrival",
+    "imageName": "arrival",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Alien Arrival.mp3"
+  },
+  {
+    "title": "Dreamscape",
+    "location": "Inception",
+    "imageName": "inception",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Dreamscape.mp3"
+  },
+  {
+    "title": "Cornfield Chase",
+    "location": "Interstellar",
+    "imageName": "cornfield",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Cornfield Chase.mp3"
+  },
+  {
+    "title": "Winterfell",
+    "location": "Game Of Thrones",
+    "imageName": "winterfell",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Winterfell.mp3"
+  },
+  {
+    "title": "Monica's Apartment",
+    "location": "New York",
+    "imageName": "friends",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Monica's Apartment.mp3"
+  },
+  {
+    "title": "Hogwarts Classroom",
+    "location": "Harry Potter",
+    "imageName": "harry",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Hogwarts Classroom.mp3"
+  },
+  {
+    "title": "WBDS Radio",
+    "location": "Mafia",
+    "imageName": "mafia",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/WBDS Radio.mp3"
+  },
+  {
+    "title": "Empire Central Radio",
+    "location": "Mafia II",
+    "imageName": "mafia-radio-central",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Empire Central Radio.mp3"
+  },
+  {
+    "title": "Empire Classic Radio",
+    "location": "Mafia II",
+    "imageName": "mafia-radia-classic",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Empire Classic Radio.mp3"
+  },
+  {
+    "title": "Wild West",
+    "location": "Red Dead Redemption 2",
+    "imageName": "wild-west",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Wild West.mp3"
+  },
+  {
+    "title": "Midgard Serenity",
+    "location": "God of War",
+    "imageName": "gow",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Midgard Serenity.mp3"
+  },
+  {
+    "title": "Post Apocalypse",
+    "location": "The Last of Us",
+    "imageName": "last-of-us",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Post Apocalypse.mp3"
+  }
+]
