@@ -14,15 +14,7 @@
 		23571CA92BEE199C00722844 /* Zen_SoundsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23571CA82BEE199C00722844 /* Zen_SoundsApp.swift */; };
 		23571CAB2BEE199C00722844 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23571CAA2BEE199C00722844 /* ContentView.swift */; };
 		23571CAD2BEE199D00722844 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23571CAC2BEE199D00722844 /* Assets.xcassets */; };
-		23571CB02BEE199D00722844 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23571CAF2BEE199D00722844 /* Preview Assets.xcassets */; };
-		23571CBB2BEE199D00722844 /* Zen_SoundsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23571CBA2BEE199D00722844 /* Zen_SoundsTests.swift */; };
-		23571CC52BEE199D00722844 /* Zen_SoundsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23571CC42BEE199D00722844 /* Zen_SoundsUITests.swift */; };
-		23571CC72BEE199D00722844 /* Zen_SoundsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23571CC62BEE199D00722844 /* Zen_SoundsUITestsLaunchTests.swift */; };
 		235B980E2C0999FB00D19C0E /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 235B980D2C0999FB00D19C0E /* Sparkle */; };
-		235B98102C099B6600D19C0E /* Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235B980F2C099B6600D19C0E /* Updates.swift */; };
-		23E96F8D2C0996790016C19D /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E96F8C2C0996790016C19D /* Sparkle.framework */; };
-		23E96F8E2C0996790016C19D /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E96F8C2C0996790016C19D /* Sparkle.framework */; };
-		23E96F8F2C0996790016C19D /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E96F8C2C0996790016C19D /* Sparkle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,15 +41,9 @@
 		23571CA82BEE199C00722844 /* Zen_SoundsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zen_SoundsApp.swift; sourceTree = "<group>"; };
 		23571CAA2BEE199C00722844 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		23571CAC2BEE199D00722844 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		23571CAF2BEE199D00722844 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		23571CB12BEE199D00722844 /* Zen_Sounds.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Zen_Sounds.entitlements; sourceTree = "<group>"; };
 		23571CB62BEE199D00722844 /* Zen SoundsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Zen SoundsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		23571CBA2BEE199D00722844 /* Zen_SoundsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zen_SoundsTests.swift; sourceTree = "<group>"; };
 		23571CC02BEE199D00722844 /* Zen SoundsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Zen SoundsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		23571CC42BEE199D00722844 /* Zen_SoundsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zen_SoundsUITests.swift; sourceTree = "<group>"; };
-		23571CC62BEE199D00722844 /* Zen_SoundsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zen_SoundsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		235B980F2C099B6600D19C0E /* Updates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updates.swift; sourceTree = "<group>"; };
-		23E96F8C2C0996790016C19D /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +51,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23E96F8D2C0996790016C19D /* Sparkle.framework in Frameworks */,
 				235B980E2C0999FB00D19C0E /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,7 +59,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23E96F8E2C0996790016C19D /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +66,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23E96F8F2C0996790016C19D /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,8 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				23571CA72BEE199C00722844 /* Zen Sounds */,
-				23571CB92BEE199D00722844 /* Zen SoundsTests */,
-				23571CC32BEE199D00722844 /* Zen SoundsUITests */,
 				23571CA62BEE199C00722844 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -116,38 +97,10 @@
 				23571CA82BEE199C00722844 /* Zen_SoundsApp.swift */,
 				232A75542BF5041600EDA65D /* ReadDataJSON.swift */,
 				23571CAA2BEE199C00722844 /* ContentView.swift */,
-				235B980F2C099B6600D19C0E /* Updates.swift */,
 				23571CAC2BEE199D00722844 /* Assets.xcassets */,
 				23571CB12BEE199D00722844 /* Zen_Sounds.entitlements */,
-				23571CAE2BEE199D00722844 /* Preview Content */,
 			);
 			path = "Zen Sounds";
-			sourceTree = "<group>";
-		};
-		23571CAE2BEE199D00722844 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				23571CAF2BEE199D00722844 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		23571CB92BEE199D00722844 /* Zen SoundsTests */ = {
-			isa = PBXGroup;
-			children = (
-				23571CBA2BEE199D00722844 /* Zen_SoundsTests.swift */,
-			);
-			path = "Zen SoundsTests";
-			sourceTree = "<group>";
-		};
-		23571CC32BEE199D00722844 /* Zen SoundsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				23571CC42BEE199D00722844 /* Zen_SoundsUITests.swift */,
-				23571CC62BEE199D00722844 /* Zen_SoundsUITestsLaunchTests.swift */,
-				23E96F8C2C0996790016C19D /* Sparkle.framework */,
-			);
-			path = "Zen SoundsUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +213,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23571CB02BEE199D00722844 /* Preview Assets.xcassets in Resources */,
 				23571CAD2BEE199D00722844 /* Assets.xcassets in Resources */,
 				2300E9122BEFD1240092F2D5 /* data.json in Resources */,
 			);
@@ -291,7 +243,6 @@
 			files = (
 				23571CAB2BEE199C00722844 /* ContentView.swift in Sources */,
 				232A75552BF5041600EDA65D /* ReadDataJSON.swift in Sources */,
-				235B98102C099B6600D19C0E /* Updates.swift in Sources */,
 				23571CA92BEE199C00722844 /* Zen_SoundsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,7 +251,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23571CBB2BEE199D00722844 /* Zen_SoundsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,8 +258,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23571CC72BEE199D00722844 /* Zen_SoundsUITestsLaunchTests.swift in Sources */,
-				23571CC52BEE199D00722844 /* Zen_SoundsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
