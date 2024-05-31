@@ -8,6 +8,12 @@
 import SwiftUI
 import AVKit
 
+extension Bundle {
+    var buildNumber: String {
+        return infoDictionary?["CFBundleVersion"] as! String
+    }
+}
+
 struct ContentView: View {
     @StateObject var data = ReadDataJSON()
     @State private var isAudioPlaying = false
