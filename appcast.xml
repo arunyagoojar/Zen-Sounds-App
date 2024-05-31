@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Zen Sounds</title>
+        <item>
+            <title>1.1.2</title>
+            <pubDate>Fri, 31 May 2024 11:42:30 +0530</pubDate>
+            <sparkle:version>1.1.2</sparkle:version>
+            <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/arunyagoojar/Zen-Sounds-App/releases/download/v1.1.2/Zen.Sounds.dmg" length="52282397" type="application/octet-stream" sparkle:edSignature="ektv0qKx2BV8C+MGfzC7D68xVPxOwQfLewu7olo1wtA2vcdKOVOX1wxPh6bsViR5GDNoi0SsqAEXVdtL+VZMBw=="/>
+        </item>
+    </channel>
+</rss>
