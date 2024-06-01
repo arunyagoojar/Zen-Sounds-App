@@ -1,4 +1,11 @@
 [
+    
+    {
+      "title": "Summit Song",
+      "location": "Mountains",
+      "imageName": "mountain-amb",
+      "audioURL": "https://zensounds.blob.core.windows.net/zen/Mountain-Ambience.mp3"
+    },
   {
     "title": "Blackbird Melody",
     "location": "Spring Forest",
@@ -60,11 +67,23 @@
     "audioURL": "https://zensounds.blob.core.windows.net/zen/The Library.mp3"
   },
   {
+    "title": "Cozy Fireplace",
+    "location": "Snow Day",
+    "imageName": "fireplace",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Snow-Fire.mp3"
+  },
+  {
     "title": "Cafe Study Session",
     "location": "Cafe",
     "imageName": "cafe",
     "audioURL": "https://zensounds.blob.core.windows.net/zen/Cafe Study Session.mp3"
   },
+  {
+      "title": "Drizzle Drive",
+      "location": "Car Backseat",
+      "imageName": "backseat",
+      "audioURL": "https://zensounds.blob.core.windows.net/zen/Backseat-Car.mp3"
+    },
   {
     "title": "Flight",
     "location": "White Noise",
@@ -82,6 +101,12 @@
     "location": "Lo-Fi",
     "imageName": "lofi",
     "audioURL": "https://zensounds.blob.core.windows.net/zen/Morning Coffee.mp3"
+  },
+  {
+    "title": "Stan",
+    "location": "Slim & Dido",
+    "imageName": "stan",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/stan.mp3"
   },
   {
     "title": "Interstellar",
@@ -120,16 +145,52 @@
     "audioURL": "https://zensounds.blob.core.windows.net/zen/Winterfell.mp3"
   },
   {
-    "title": "Monica's Apartment",
-    "location": "New York",
-    "imageName": "friends",
-    "audioURL": "https://zensounds.blob.core.windows.net/zen/Monica's Apartment.mp3"
-  },
-  {
     "title": "Hogwarts Classroom",
     "location": "Harry Potter",
     "imageName": "harry",
     "audioURL": "https://zensounds.blob.core.windows.net/zen/Hogwarts Classroom.mp3"
+  },
+  {
+    "title": "Emerald Ranch",
+    "location": "Red Dead Redemption 2",
+    "imageName": "ranch",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/ranch-day.mp3"
+  },
+  {
+    "title": "A Train Ride",
+    "location": "Red Dead Redemption 2",
+    "imageName": "train-red",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Train-Ride-Red.mp3"
+  },
+  {
+      "title": "Armadillo",
+      "location": "Red Dead Redemption 2",
+      "imageName": "armadillo",
+      "audioURL": "https://zensounds.blob.core.windows.net/zen/Armadillo-Rain.mp3"
+  },
+  {
+    "title": "Stormy Wagon Ride",
+    "location": "Red Dead Redemption 2",
+    "imageName": "wagon",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Wagon-Thunderstorm.mp3"
+  },
+  {
+    "title": "Wild West",
+    "location": "Red Dead Redemption 2",
+    "imageName": "wild-west",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Wild West.mp3"
+  },
+  {
+    "title": "Midgard Serenity",
+    "location": "God of War",
+    "imageName": "gow",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Midgard Serenity.mp3"
+  },
+  {
+    "title": "Post Apocalypse",
+    "location": "The Last of Us",
+    "imageName": "last-of-us",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/Post Apocalypse.mp3"
   },
   {
     "title": "WBDS Radio",
@@ -150,21 +211,15 @@
     "audioURL": "https://zensounds.blob.core.windows.net/zen/Empire Classic Radio.mp3"
   },
   {
-    "title": "Wild West",
-    "location": "Red Dead Redemption 2",
-    "imageName": "wild-west",
-    "audioURL": "https://zensounds.blob.core.windows.net/zen/Wild West.mp3"
+    "title": "WVCE 1150",
+    "location": "Mafia III",
+    "imageName": "WVCE",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/WVCE-1150.mp3"
   },
   {
-    "title": "Midgard Serenity",
-    "location": "God of War",
-    "imageName": "gow",
-    "audioURL": "https://zensounds.blob.core.windows.net/zen/Midgard Serenity.mp3"
-  },
-  {
-    "title": "Post Apocalypse",
-    "location": "The Last of Us",
-    "imageName": "last-of-us",
-    "audioURL": "https://zensounds.blob.core.windows.net/zen/Post Apocalypse.mp3"
+    "title": "WBYU 620",
+    "location": "Mafia III",
+    "imageName": "WBYU",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/WBYU-620.mp3"
   }
 ]

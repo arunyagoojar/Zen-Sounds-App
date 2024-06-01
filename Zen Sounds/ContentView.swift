@@ -10,14 +10,30 @@ import AVKit
 
 struct ContentView: View {
     @StateObject var data = ReadDataJSON()
-    @State private var isAudioPlaying = false
+    @State public var isAudioPlaying = false
     @State private var player: AVPlayer?
+    
+    @State private var lastPlaybackPosition: CMTime?
+    @State private var lastAudioURL: URL?
+    
     @State private var isButtonPressed = false
-    @State private var currentSound: Sound = Sound(title: "Written On The Sky", location: "stratosphere", imageName: "sky-space", audioURL: "https://zensounds.blob.core.windows.net/zendata/Written On The Sky.mp3")
+    @State private var currentSound: Sound = {
+        if let historyData = UserDefaults.standard.data(forKey: "playHistory"),
+           let playHistory = try? JSONDecoder().decode([Sound].self, from: historyData),
+           let lastPlayedSound = playHistory.first {
+            return lastPlayedSound
+        } else {
+            // If no history exists, use the default sound
+            return Sound(title: "Written On The Sky", location: "stratosphere", imageName: "sky-space", audioURL: "https://zensounds.blob.core.windows.net/zen/Written On The Sky.mp3")
+        }
+    }()
     
     @State private var imageOpacity = 1.0
     @State private var playHistory: [Sound] = []
-
+    
+    @State private var showVolumeHUD = false
+    @State private var volumeLevel: Float = 0.8
+    @State private var isSliderHovered = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -30,7 +46,7 @@ struct ContentView: View {
                     .ignoresSafeArea()
                     .animation(.easeInOut(duration: 0.3), value: currentSound.imageName)
                 
-                ScrollView() {
+                ScrollView(.vertical, showsIndicators: false) {
                     VStack(alignment: .center){
                     }.frame(height: (NSScreen.main?.visibleFrame.size.height ?? 0) / 1.5)
                     
@@ -39,7 +55,7 @@ struct ContentView: View {
                         ZStack{
                             Rectangle()
                                 .fill(.ultraThinMaterial)
-                                .frame(height: 720)
+                                .frame(height: 740)
                                 .mask {
                                     VStack(spacing: 0) {
                                         LinearGradient(colors: [Color.black.opacity(0),  // sin(x * pi / 2)
@@ -74,46 +90,76 @@ struct ContentView: View {
                                         .kerning(12.0)
                                     
                                     Spacer().frame(height: 70)
-                                    
-                                    Button(action: {
-                                        withAnimation(.easeInOut(duration: 0.15)) {
-                                            isButtonPressed = true
-                                        }
-                                        
-                                        isAudioPlaying.toggle()
-                                        if isAudioPlaying {
-                                            playSound()
-                                        } else {
-                                            stopSound()
-                                        }
-                                        
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                            withAnimation(.easeOut(duration: 0.3)) {
-                                                isButtonPressed = false
+                                    HStack{
+                                        Button(action: {
+                                            withAnimation(.easeInOut(duration: 0.15)) {
+                                                isButtonPressed = true
                                             }
-                                        }
-                                    })
-                                    {
-                                        HStack(alignment: .center) {
+                                            
+                                            isAudioPlaying.toggle()
+                                            if isAudioPlaying {
+                                                playSound()
+                                            } else {
+                                                stopSound()
+                                            }
+                                            
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                                withAnimation(.easeOut(duration: 0.3)) {
+                                                    isButtonPressed = false
+                                                }
+                                            }
+                                        })
+                                        {
                                             Image(systemName: isAudioPlaying ? "stop.circle" : "play.circle")
                                                 .resizable()
-                                                .frame(width: 24, height: 24)
+                                                .frame(width: 32, height: 32)
                                                 .opacity(0.65)
-                                            Spacer().frame(width: 12, height: 5)
-                                            Text(isAudioPlaying ? "Stop Surrounding" : "Set Surrounding")
-                                                .font(.custom("", size: 20))
-                                                .opacity(0.95)
-                                                .padding(.top, 3)
-                                        }
+                                            
+                                        }.keyboardShortcut(.space, modifiers: [])
+                                            .buttonStyle(PlainButtonStyle())
+                                            .padding(.horizontal, 8.0)
+                                            .padding(.vertical, 8.0)
+                                            .background(.thickMaterial)
+                                            .clipShape(Capsule())
+                                            .scaleEffect(isButtonPressed ? 1.075 : 1)
+                                            .opacity(isButtonPressed ? 0.9 : 1)
+                                        
+                                        Spacer().frame(width: 12, height: 5)
+                                                    
+                                        Slider(value: Binding(
+                                            get: {
+                                                self.volumeLevel
+                                            },
+                                            set: { newValue in
+                                                self.volumeLevel = newValue
+                                                self.adjustVolume(level: newValue)
+                                            }
+                                        ), in: 0...1)
+                                            .frame(width: 130)
+                                            .padding(.horizontal, 16.0)
+                                            .padding(.vertical, 10.0)
+                                            .background(.thickMaterial)
+                                            .clipShape(Capsule())
                                     }
-                                    .buttonStyle(PlainButtonStyle())
-                                    .padding(.horizontal, 15.0)
-                                    .padding(.vertical, 10.0)
-                                    .background(.thickMaterial)
-                                    .clipShape(Capsule())
-                                    .scaleEffect(isButtonPressed ? 1.025 : 1)
-                                    .opacity(isButtonPressed ? 0.9 : 1)
                                 }.offset(y:-30)
+                                
+                                
+                                Button(action: {
+                                    adjustVolume(increment: true)
+                                }) {
+                                    EmptyView()
+                                }.frame(width: 0,height: 0)
+                                .keyboardShortcut("=", modifiers: .command)
+                                .opacity(0) // Make the button invisible
+                                
+                                Button(action: {
+                                    adjustVolume(increment: false)
+                                }) {
+                                    EmptyView()
+                                }.frame(width: 0,height: 0)
+                                .keyboardShortcut("-", modifiers: .command)
+                                .opacity(0) // Make the button invisible
+                                
                                 Spacer().frame(height: 140)
                                 // Play History ScrollView
                                 VStack(alignment: .leading){
@@ -135,17 +181,16 @@ struct ContentView: View {
                                                         Image(sound.imageName)
                                                             .resizable()
                                                             .scaledToFill()
+                                                            .blur(radius: 4,opaque: true)
                                                             .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
                                                         Rectangle()
-                                                            .fill(.ultraThickMaterial)
-                                                            .opacity(0.6)
+                                                            .fill(Color.black.opacity(0.3))
                                                             .ignoresSafeArea()
-                                                            .blur(radius: 8,opaque: true)
                                                             .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
                                                             .scaledToFill()
                                                         VStack {
                                                             Text(sound.title)
-                                                                .font(.custom("Times New Roman", size: 36))
+                                                                .font(.custom("Times New Roman", size: 42))
                                                                 .fontWeight(.regular)
                                                                 .foregroundColor(.white)
                                                                 .multilineTextAlignment(.center)
@@ -200,7 +245,7 @@ struct ContentView: View {
                                         HStack(alignment: .center, spacing: 20) {
                                             // Define the start and end indices
                                             let startIndex = 0
-                                            let endIndex = startIndex + 9
+                                            let endIndex = startIndex + 10
                                             
                                             // Ensure the indices are within bounds of the array
                                             let validEndIndex = min(endIndex, data.sounds.count)
@@ -211,19 +256,18 @@ struct ContentView: View {
                                                     Image(sound.imageName)
                                                         .resizable()
                                                         .scaledToFill()
+                                                        .blur(radius: 4,opaque: true)
                                                         .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
                                                         .frame(maxWidth: 500)
                                                     Rectangle()
-                                                        .fill(.ultraThickMaterial)
-                                                        .opacity(0.6)
+                                                        .fill(Color.black.opacity(0.4))
                                                         .ignoresSafeArea()
-                                                        .blur(radius: 8,opaque: true)
                                                         .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
                                                         .frame(maxWidth: 500)
                                                         .scaledToFill()
                                                     VStack {
                                                         Text(sound.title)
-                                                            .font(.custom("Times New Roman", size: 36))
+                                                            .font(.custom("Times New Roman", size: 42))
                                                             .fontWeight(.regular)
                                                             .foregroundColor(.white)
                                                             .multilineTextAlignment(.center)
@@ -278,7 +322,7 @@ struct ContentView: View {
                                         HStack(alignment: .center, spacing: 20) {
                                             // Define the start and end indices
                                             let startIndex = 10
-                                            let endIndex = startIndex + 4
+                                            let endIndex = startIndex + 7
                                             
                                             // Ensure the indices are within bounds of the array
                                             let validEndIndex = min(endIndex, data.sounds.count)
@@ -289,19 +333,18 @@ struct ContentView: View {
                                                     Image(sound.imageName)
                                                         .resizable()
                                                         .scaledToFill()
+                                                        .blur(radius: 4,opaque: true)
                                                         .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
                                                         .frame(maxWidth: 500)
                                                     Rectangle()
-                                                        .fill(.ultraThickMaterial)
-                                                        .opacity(0.6)
+                                                        .fill(Color.black.opacity(0.4))
                                                         .ignoresSafeArea()
-                                                        .blur(radius: 8,opaque: true)
                                                         .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
                                                         .frame(maxWidth: 500)
                                                         .scaledToFill()
                                                     VStack {
                                                         Text(sound.title)
-                                                            .font(.custom("Times New Roman", size: 36))
+                                                            .font(.custom("Times New Roman", size: 42))
                                                             .fontWeight(.regular)
                                                             .foregroundColor(.white)
                                                             .multilineTextAlignment(.center)
@@ -340,7 +383,7 @@ struct ContentView: View {
                                 .fill(.ultraThinMaterial)
                                 .blur(radius: 20, opaque: true)
                                 .ignoresSafeArea()
-                                .frame(height: 400)
+                                .frame(height: 785)
                                 .scaledToFill()
                             
                             VStack(){
@@ -355,8 +398,8 @@ struct ContentView: View {
                                     ScrollView(.horizontal,showsIndicators: false) {
                                         HStack(alignment: .center, spacing: 20) {
                                             // Define the start and end indices
-                                            let startIndex = 14
-                                            let endIndex = startIndex + 8
+                                            let startIndex = 17
+                                            let endIndex = startIndex + 1
                                             
                                             // Ensure the indices are within bounds of the array
                                             let validEndIndex = min(endIndex, data.sounds.count)
@@ -367,19 +410,71 @@ struct ContentView: View {
                                                     Image(sound.imageName)
                                                         .resizable()
                                                         .scaledToFill()
+                                                        .blur(radius: 4,opaque: true)
+                                                        .frame(width: geometry.size.width , height: 350)
+                                                    Rectangle()
+                                                        .fill(Color.black.opacity(0.4))
+                                                        .ignoresSafeArea()
+                                                        .frame(width: geometry.size.width , height: 350)
+                                                        .scaledToFill()
+                                                    VStack {
+                                                        Text(sound.title)
+                                                            .font(.custom("Times New Roman", size: 42))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(.white)
+                                                            .multilineTextAlignment(.center)
+                                                            .padding(.top,5)
+                                                            .padding(.bottom,1)
+                                                            .opacity(0.8)
+                                                            .frame(maxWidth: 380)
+                                                        
+                                                        Text(sound.location)
+                                                            .font(.custom("", size: 14))
+                                                            .fontWeight(.ultraLight)
+                                                            .foregroundColor(.white)
+                                                            .padding(.top,5)
+                                                            .padding(.horizontal)
+                                                            .opacity(0.65)
+                                                            .textCase(.uppercase)
+                                                            .kerning(6.0)
+                                                    }
+                                                }.frame(width: geometry.size.width, height: 350).compositingGroup()
+                                                    .cornerRadius(16).onTapGesture {
+                                                        currentSound = sound
+                                                        isAudioPlaying = true
+                                                        playSound()
+                                                    }
+                                            }
+                                        }.scrollTargetLayout()
+                                    }.cornerRadius(16)
+                                        .scrollTargetBehavior(.viewAligned).frame(maxWidth: .infinity)
+                                    ScrollView(.horizontal,showsIndicators: false) {
+                                        HStack(alignment: .center, spacing: 20) {
+                                            // Define the start and end indices
+                                            let startIndex = 18
+                                            let endIndex = startIndex + 7
+                                            
+                                            // Ensure the indices are within bounds of the array
+                                            let validEndIndex = min(endIndex, data.sounds.count)
+                                            let validStartIndex = min(startIndex, data.sounds.count)
+                                            
+                                            ForEach(data.sounds[validStartIndex..<validEndIndex]) { sound in
+                                                ZStack {
+                                                    Image(sound.imageName)
+                                                        .resizable()
+                                                        .scaledToFill()
+                                                        .blur(radius: 4,opaque: true)
                                                         .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
                                                         .frame(maxWidth: 500)
                                                     Rectangle()
-                                                        .fill(.ultraThickMaterial)
-                                                        .opacity(0.6)
+                                                        .fill(Color.black.opacity(0.4))
                                                         .ignoresSafeArea()
-                                                        .blur(radius: 8,opaque: true)
                                                         .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
                                                         .frame(maxWidth: 500)
                                                         .scaledToFill()
                                                     VStack {
                                                         Text(sound.title)
-                                                            .font(.custom("Times New Roman", size: 36))
+                                                            .font(.custom("Times New Roman", size: 42))
                                                             .fontWeight(.regular)
                                                             .foregroundColor(.white)
                                                             .multilineTextAlignment(.center)
@@ -407,7 +502,8 @@ struct ContentView: View {
                                             }
                                         }.scrollTargetLayout()
                                     }.cornerRadius(16)
-                                        .scrollTargetBehavior(.viewAligned).frame(maxWidth: .infinity)
+                                        .scrollTargetBehavior(.viewAligned).frame(maxWidth: .infinity).padding(.top,20)
+                                    
                                 }.frame(maxWidth: geometry.size.width).padding(.top,20)
                                     .padding(.horizontal,50)
                             }//vstack
@@ -434,7 +530,7 @@ struct ContentView: View {
                                         HStack(alignment: .center, spacing: 20) {
                                             // Define the start and end indices
                                             let startIndex = 25
-                                            let endIndex = startIndex + 3
+                                            let endIndex = startIndex + 7
                                             
                                             // Ensure the indices are within bounds of the array
                                             let validEndIndex = min(endIndex, data.sounds.count)
@@ -445,19 +541,18 @@ struct ContentView: View {
                                                     Image(sound.imageName)
                                                         .resizable()
                                                         .scaledToFill()
+                                                        .blur(radius: 4,opaque: true)
                                                         .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
                                                         .frame(maxWidth: 500)
                                                     Rectangle()
-                                                        .fill(.ultraThickMaterial)
-                                                        .opacity(0.6)
+                                                        .fill(Color.black.opacity(0.4))
                                                         .ignoresSafeArea()
-                                                        .blur(radius: 8,opaque: true)
                                                         .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
                                                         .frame(maxWidth: 500)
                                                         .scaledToFill()
                                                     VStack {
                                                         Text(sound.title)
-                                                            .font(.custom("Times New Roman", size: 36))
+                                                            .font(.custom("Times New Roman", size: 42))
                                                             .fontWeight(.regular)
                                                             .foregroundColor(.white)
                                                             .multilineTextAlignment(.center)
@@ -493,8 +588,8 @@ struct ContentView: View {
                                     ScrollView(.horizontal,showsIndicators: false) {
                                         HStack(alignment: .center, spacing: 20) {
                                             // Define the start and end indices
-                                            let startIndex = 22
-                                            let endIndex = startIndex + 3
+                                            let startIndex = 32
+                                            let endIndex = startIndex + 5
                                             
                                             // Ensure the indices are within bounds of the array
                                             let validEndIndex = min(endIndex, data.sounds.count)
@@ -505,12 +600,17 @@ struct ContentView: View {
                                                     Image(sound.imageName)
                                                         .resizable()
                                                         .scaledToFill()
-                                                        .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
                                                         .blur(radius: 4,opaque: true)
                                                         .frame(width: geometry.size.width, height: 350)
+                                                    Rectangle()
+                                                        .fill(Color.black.opacity(0.4))
+                                                        .ignoresSafeArea()
+                                                        .frame(width: geometry.size.width, height: 350)
+                                                        .scaledToFill()
+                                                    
                                                     VStack {
                                                         Text(sound.title)
-                                                            .font(.custom("Times New Roman", size: 36))
+                                                            .font(.custom("Times New Roman", size: 42))
                                                             .fontWeight(.regular)
                                                             .foregroundColor(.white)
                                                             .multilineTextAlignment(.center)
@@ -545,38 +645,43 @@ struct ContentView: View {
                     }
                 }.frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
                 //scroll
-            }//zstack
-            .onAppear {
-                        // Retrieve play history from UserDefaults
-                        if let data = UserDefaults.standard.data(forKey: "playHistory") {
-                            let decoder = JSONDecoder()
-                            if let decoded = try? decoder.decode([Sound].self, from: data) {
-                                self.playHistory = decoded
+                ZStack { // Volume HUD ZStack
+                    if showVolumeHUD {
+                        VStack {
+                            Spacer().frame(height: 80)
+                            HStack(alignment: .center) {
+                                Text("Volume: \(Int(round(volumeLevel * 100)))%") // Show volume %
+                                    .font(.custom("", size: 20))
+                                    .opacity(0.95)
+                                    .padding(.top, 3)
                             }
+                            .keyboardShortcut(.space, modifiers: [])
+                            .buttonStyle(PlainButtonStyle())
+                            .padding(.horizontal, 20.0)
+                            .padding(.vertical, 10.0)
+                            .background(.thickMaterial)
+                            .cornerRadius(16)
+                            
+                            Spacer()
                         }
                     }
+                }.animation(.easeInOut(duration: 0.7), value: showVolumeHUD)
+                .frame(width: geometry.size.width, height: geometry.size.height)
+            }//zstack
+            .onAppear {
+                // Retrieve play history from UserDefaults
+                if let data = UserDefaults.standard.data(forKey: "playHistory") {
+                    let decoder = JSONDecoder()
+                    if let decoded = try? decoder.decode([Sound].self, from: data) {
+                        self.playHistory = decoded
+                    }
+                }
+            }
             .onDisappear(perform: stopSound)// Ensure sound stops when view disappears
             .frame(width: geometry.size.width, height: geometry.size.height)
             .edgesIgnoringSafeArea(.all)
-        }.edgesIgnoringSafeArea(.all).frame(minWidth: 1120, minHeight: 750)
+        }.edgesIgnoringSafeArea(.all).frame(minWidth: 1120, minHeight: 750).frame(maxWidth: .infinity, maxHeight: .infinity)
     }
-
-    //Audio control
-    func playSound() {
-            guard let url = URL(string: currentSound.audioURL) else {
-                print("Invalid URL")
-                return
-            }
-            let playerItem = AVPlayerItem(url: url)
-            let player = AVPlayer(playerItem: playerItem)
-            player.play()
-            
-            // Retain the player in a property to keep it alive
-            self.player = player
-            
-            // Update play history
-            updateHistory(with: currentSound)
-        }
     
     func updateHistory(with sound: Sound) {
             // Remove the sound if it already exists
@@ -612,17 +717,73 @@ struct ContentView: View {
             }
         }
 
-        func stopSound() {
-                player?.pause()
-                player = nil
+    // Audio control
+    func playSound() {
+        stopSound()
+        
+        guard let url = URL(string: currentSound.audioURL) else {
+            print("Invalid URL")
+            return
+        }
+        
+        let playerItem = AVPlayerItem(url: url)
+        let player = AVPlayer(playerItem: playerItem)
+        
+        if lastAudioURL == url, let lastPosition = lastPlaybackPosition {
+            player.seek(to: lastPosition)
+        }
+        
+        player.play()
+        
+        // Retain the player in a property to keep it alive
+        self.player = player
+        self.lastAudioURL = url
+        
+        // Update play history
+        updateHistory(with: currentSound)
+    }
+
+    func stopSound() {
+        if let player = player {
+            lastPlaybackPosition = player.currentTime()
+        }
+        player?.pause()
+        player = nil
+    }
+    
+    func adjustVolume(level: Float) {
+            guard let player = player else { return }
+            
+            player.volume = level
+            volumeLevel = player.volume // Update volumeLevel state
+            showVolumeHUD = true // Show the HUD
+            
+            // Hide the HUD after a delay (adjust as needed)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    self.showVolumeHUD = false
+                }
+            }
+        }
+    
+    func adjustVolume(increment: Bool) {
+            guard let player = player else { return }
+
+            if increment {
+                player.volume = min(player.volume + 0.1, 1.0)
+            } else {
+                player.volume = max(player.volume - 0.1, 0.0)
+            }
+
+            volumeLevel = player.volume // Update volumeLevel state
+            showVolumeHUD = true // Show the HUD
+            
+            // Hide the HUD after a delay (adjust as needed)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    self.showVolumeHUD = false
+                }
+            }
         }
 }//view
-
-#if DEBUG
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-#endif
 
