@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>SUEnableDownloaderService</key>
+	<true/>
+	<key>SUEnableInstallerLauncherService</key>
+	<true/>
+	<key>SUFeedURL</key>
+	<string>https://arunyagoojar.github.io/zensounds-updates/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>qkG0BPs2dYZL+YDBHPRAldIQOWT7JeKzzjkpZ5X/5jQ=</string>
+</dict>
 </plist>

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2300E9122BEFD1240092F2D5 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 2300E9112BEFD1240092F2D5 /* data.json */; };
+		2306CDEB2C27E684002D3BCD /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 2306CDEA2C27E684002D3BCD /* Sparkle */; };
+		2306CDED2C27EAD0002D3BCD /* CheckForUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2306CDEC2C27EACC002D3BCD /* CheckForUpdates.swift */; };
+		23112C8D2C2614BE00FA0918 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23112C8C2C2614BE00FA0918 /* CoreAudio.framework */; };
 		232A75552BF5041600EDA65D /* ReadDataJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A75542BF5041600EDA65D /* ReadDataJSON.swift */; };
 		23571CA92BEE199C00722844 /* Zen_SoundsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23571CA82BEE199C00722844 /* Zen_SoundsApp.swift */; };
 		23571CAB2BEE199C00722844 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23571CAA2BEE199C00722844 /* ContentView.swift */; };
@@ -16,6 +19,8 @@
 
 /* Begin PBXFileReference section */
 		2300E9112BEFD1240092F2D5 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		2306CDEC2C27EACC002D3BCD /* CheckForUpdates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckForUpdates.swift; sourceTree = "<group>"; };
+		23112C8C2C2614BE00FA0918 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		232A75542BF5041600EDA65D /* ReadDataJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadDataJSON.swift; sourceTree = "<group>"; };
 		23571CA52BEE199C00722844 /* Zen Sounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Zen Sounds.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23571CA82BEE199C00722844 /* Zen_SoundsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zen_SoundsApp.swift; sourceTree = "<group>"; };
@@ -29,17 +34,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23112C8D2C2614BE00FA0918 /* CoreAudio.framework in Frameworks */,
+				2306CDEB2C27E684002D3BCD /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23112C8B2C2614BE00FA0918 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				23112C8C2C2614BE00FA0918 /* CoreAudio.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		23571C9C2BEE199C00722844 = {
 			isa = PBXGroup;
 			children = (
 				23571CA72BEE199C00722844 /* Zen Sounds */,
 				23571CA62BEE199C00722844 /* Products */,
+				23112C8B2C2614BE00FA0918 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +74,7 @@
 				23571CA82BEE199C00722844 /* Zen_SoundsApp.swift */,
 				232A75542BF5041600EDA65D /* ReadDataJSON.swift */,
 				23571CAA2BEE199C00722844 /* ContentView.swift */,
+				2306CDEC2C27EACC002D3BCD /* CheckForUpdates.swift */,
 				23571CAC2BEE199D00722844 /* Assets.xcassets */,
 				23571CB12BEE199D00722844 /* Zen_Sounds.entitlements */,
 			);
@@ -81,6 +98,7 @@
 			);
 			name = "Zen Sounds";
 			packageProductDependencies = (
+				2306CDEA2C27E684002D3BCD /* Sparkle */,
 			);
 			productName = "Zen Sounds";
 			productReference = 23571CA52BEE199C00722844 /* Zen Sounds.app */;
@@ -111,6 +129,7 @@
 			);
 			mainGroup = 23571C9C2BEE199C00722844;
 			packageReferences = (
+				2306CDE92C27E684002D3BCD /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			productRefGroup = 23571CA62BEE199C00722844 /* Products */;
 			projectDirPath = "";
@@ -141,6 +160,7 @@
 				23571CAB2BEE199C00722844 /* ContentView.swift in Sources */,
 				232A75552BF5041600EDA65D /* ReadDataJSON.swift in Sources */,
 				23571CA92BEE199C00722844 /* Zen_SoundsApp.swift in Sources */,
+				2306CDED2C27EAD0002D3BCD /* CheckForUpdates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +300,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Zen Sounds/Zen_Sounds.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.1.5;
+				CURRENT_PROJECT_VERSION = 1.1.6;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Zen Sounds/Preview Content\"";
 				DEVELOPMENT_TEAM = Z7S5WL97VQ;
@@ -296,7 +316,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "arunya.goojar.Zen-Sounds";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = macosx;
@@ -314,7 +334,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Zen Sounds/Zen_Sounds.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.1.5;
+				CURRENT_PROJECT_VERSION = 1.1.6;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Zen Sounds/Preview Content\"";
 				DEVELOPMENT_TEAM = Z7S5WL97VQ;
@@ -330,7 +350,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "arunya.goojar.Zen-Sounds";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = macosx;
@@ -362,6 +382,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2306CDE92C27E684002D3BCD /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.6.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2306CDEA2C27E684002D3BCD /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2306CDE92C27E684002D3BCD /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 23571C9D2BEE199C00722844 /* Project object */;
 }

@@ -679,7 +679,7 @@ struct ContentView: View {
             .onDisappear(perform: stopSound)// Ensure sound stops when view disappears
             .frame(width: geometry.size.width, height: geometry.size.height)
             .edgesIgnoringSafeArea(.all)
-        }.edgesIgnoringSafeArea(.all).frame(minWidth: 1120, minHeight: 750).frame(maxWidth: .infinity, maxHeight: .infinity)
+        }.edgesIgnoringSafeArea(.all).frame(minWidth: 1120, minHeight: 800).frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
     func updateHistory(with sound: Sound) {
