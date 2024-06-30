@@ -8,7 +8,7 @@ import SwiftUI
 import AVKit
 
 struct ContentView: View {
-    @StateObject var data = ReadDataJSON()
+    @StateObject private var data = ReadDataJSON()
     @State public var isAudioPlaying = false
     @State private var player: AVPlayer?
     
@@ -255,6 +255,7 @@ struct ContentView: View {
                                                     Image(sound.imageName)
                                                         .resizable()
                                                         .scaledToFill()
+                                                        .aspectRatio(contentMode: .fill)
                                                         .blur(radius: 4,opaque: true)
                                                         .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
                                                         .frame(maxWidth: 500)
@@ -317,6 +318,7 @@ struct ContentView: View {
                                         .foregroundColor(.white)
                                         .multilineTextAlignment(.leading)
                                         .opacity(0.75)
+                                    
                                     ScrollView(.horizontal,showsIndicators: false) {
                                         HStack(alignment: .center, spacing: 20) {
                                             // Define the start and end indices
@@ -332,6 +334,7 @@ struct ContentView: View {
                                                     Image(sound.imageName)
                                                         .resizable()
                                                         .scaledToFill()
+                                                        .aspectRatio(contentMode: .fill)
                                                         .blur(radius: 4,opaque: true)
                                                         .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
                                                         .frame(maxWidth: 500)
@@ -409,6 +412,7 @@ struct ContentView: View {
                                                     Image(sound.imageName)
                                                         .resizable()
                                                         .scaledToFill()
+                                                        .aspectRatio(contentMode: .fill)
                                                         .blur(radius: 4,opaque: true)
                                                         .frame(width: geometry.size.width , height: 350)
                                                     Rectangle()
@@ -437,7 +441,7 @@ struct ContentView: View {
                                                             .textCase(.uppercase)
                                                             .kerning(6.0)
                                                     }
-                                                }.frame(width: geometry.size.width, height: 350).compositingGroup()
+                                                }.frame(width: geometry.size.width - 100, height: 350).compositingGroup()
                                                     .cornerRadius(16).onTapGesture {
                                                         currentSound = sound
                                                         isAudioPlaying = true
@@ -462,6 +466,7 @@ struct ContentView: View {
                                                     Image(sound.imageName)
                                                         .resizable()
                                                         .scaledToFill()
+                                                        .aspectRatio(contentMode: .fill)
                                                         .blur(radius: 4,opaque: true)
                                                         .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
                                                         .frame(maxWidth: 500)
@@ -540,6 +545,7 @@ struct ContentView: View {
                                                     Image(sound.imageName)
                                                         .resizable()
                                                         .scaledToFill()
+                                                        .aspectRatio(contentMode: .fill)
                                                         .blur(radius: 4,opaque: true)
                                                         .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
                                                         .frame(maxWidth: 500)
@@ -599,6 +605,7 @@ struct ContentView: View {
                                                     Image(sound.imageName)
                                                         .resizable()
                                                         .scaledToFill()
+                                                        .aspectRatio(contentMode: .fill)
                                                         .blur(radius: 4,opaque: true)
                                                         .frame(width: geometry.size.width, height: 350)
                                                     Rectangle()
@@ -745,8 +752,9 @@ struct ContentView: View {
     func stopSound() {
         if let player = player {
             lastPlaybackPosition = player.currentTime()
+            player.pause()
+            player.replaceCurrentItem(with: nil)
         }
-        player?.pause()
         player = nil
     }
     
