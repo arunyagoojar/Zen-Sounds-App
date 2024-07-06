@@ -6,6 +6,8 @@
 
 import SwiftUI
 import AVKit
+import AVFoundation
+
 
 struct ContentView: View {
     @StateObject private var data = ReadDataJSON()
@@ -27,7 +29,6 @@ struct ContentView: View {
         }
     }()
     
-    @State private var imageOpacity = 1.0
     @State private var playHistory: [Sound] = []
     
     @State private var showVolumeHUD = false
@@ -180,8 +181,9 @@ struct ContentView: View {
                                                         Image(sound.imageName)
                                                             .resizable()
                                                             .scaledToFill()
-                                                            .blur(radius: 4,opaque: true)
                                                             .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
+                                                            .blur(radius: 4,opaque: true)
+                                                            
                                                         Rectangle()
                                                             .fill(Color.black.opacity(0.3))
                                                             .ignoresSafeArea()
@@ -240,7 +242,7 @@ struct ContentView: View {
                                         .foregroundColor(.white)
                                         .multilineTextAlignment(.leading)
                                         .opacity(0.75)
-                                    ScrollView(.horizontal,showsIndicators: false) {
+                                    ScrollView(.horizontal, showsIndicators: false) {
                                         HStack(alignment: .center, spacing: 20) {
                                             // Define the start and end indices
                                             let startIndex = 0
@@ -252,13 +254,12 @@ struct ContentView: View {
                                             
                                             ForEach(data.sounds[validStartIndex..<validEndIndex]) { sound in
                                                 ZStack {
-                                                    Image(sound.imageName)
+                                                    Image(sound.imageName + "_low")
                                                         .resizable()
                                                         .scaledToFill()
                                                         .aspectRatio(contentMode: .fill)
-                                                        .blur(radius: 4,opaque: true)
                                                         .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
-                                                        .frame(maxWidth: 500)
+                                                        .blur(radius: 4,opaque: true)
                                                     Rectangle()
                                                         .fill(Color.black.opacity(0.4))
                                                         .ignoresSafeArea()
@@ -271,8 +272,8 @@ struct ContentView: View {
                                                             .fontWeight(.regular)
                                                             .foregroundColor(.white)
                                                             .multilineTextAlignment(.center)
-                                                            .padding(.top,5)
-                                                            .padding(.bottom,1)
+                                                            .padding(.top, 5)
+                                                            .padding(.bottom, 1)
                                                             .opacity(0.8)
                                                             .frame(maxWidth: 380)
                                                         
@@ -280,7 +281,7 @@ struct ContentView: View {
                                                             .font(.custom("", size: 14))
                                                             .fontWeight(.ultraLight)
                                                             .foregroundColor(.white)
-                                                            .padding(.top,5)
+                                                            .padding(.top, 5)
                                                             .padding(.horizontal)
                                                             .opacity(0.65)
                                                             .textCase(.uppercase)
@@ -296,8 +297,85 @@ struct ContentView: View {
                                         }.scrollTargetLayout()
                                     }.cornerRadius(16)
                                         .scrollTargetBehavior(.viewAligned).frame(maxWidth: .infinity)
-                                }.frame(maxWidth: geometry.size.width).padding(.top,20)
-                                    .padding(.horizontal,50)
+                                }.frame(maxWidth: geometry.size.width).padding(.top, 20)
+                                    .padding(.horizontal, 50)
+                            }//vstack
+                        }
+                        //Soulscapes
+                        ZStack{
+                            Rectangle()
+                                .fill(.ultraThinMaterial)
+                                .blur(radius: 20, opaque: true)
+                                .ignoresSafeArea()
+                                .frame(height: 400)
+                                .scaledToFill()
+                            
+                            VStack(){
+                                //Catogories
+                                VStack(alignment: .leading){
+                                    Text("Soulscapes").fontWeight(.semibold).font(.system(size: 20))
+                                        .padding(.bottom,15)
+                                        .fontWeight(.black)
+                                        .foregroundColor(.white)
+                                        .multilineTextAlignment(.leading)
+                                        .opacity(0.75)
+                                    ScrollView(.horizontal, showsIndicators: false) {
+                                        HStack(alignment: .center, spacing: 20) {
+                                            // Define the start and end indices
+                                            let startIndex = 37
+                                            let endIndex = startIndex + 4
+                                            
+                                            // Ensure the indices are within bounds of the array
+                                            let validEndIndex = min(endIndex, data.sounds.count)
+                                            let validStartIndex = min(startIndex, data.sounds.count)
+                                            
+                                            ForEach(data.sounds[validStartIndex..<validEndIndex]) { sound in
+                                                ZStack {
+                                                    Image(sound.imageName + "_low")
+                                                        .resizable()
+                                                        .scaledToFill()
+                                                        .aspectRatio(contentMode: .fill)
+                                                        .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
+                                                        .blur(radius: 4,opaque: true)
+                                                    Rectangle()
+                                                        .fill(Color.black.opacity(0.4))
+                                                        .ignoresSafeArea()
+                                                        .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
+                                                        .frame(maxWidth: 500)
+                                                        .scaledToFill()
+                                                    VStack {
+                                                        Text(sound.title)
+                                                            .font(.custom("Times New Roman", size: 42))
+                                                            .fontWeight(.regular)
+                                                            .foregroundColor(.white)
+                                                            .multilineTextAlignment(.center)
+                                                            .padding(.top, 5)
+                                                            .padding(.bottom, 1)
+                                                            .opacity(0.8)
+                                                            .frame(maxWidth: 380)
+                                                        
+                                                        Text(sound.location)
+                                                            .font(.custom("", size: 14))
+                                                            .fontWeight(.ultraLight)
+                                                            .foregroundColor(.white)
+                                                            .padding(.top, 5)
+                                                            .padding(.horizontal)
+                                                            .opacity(0.65)
+                                                            .textCase(.uppercase)
+                                                            .kerning(6.0)
+                                                    }
+                                                }.frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270).frame(maxWidth: 500).compositingGroup()
+                                                    .cornerRadius(16).onTapGesture {
+                                                        currentSound = sound
+                                                        isAudioPlaying = true
+                                                        playSound()
+                                                    }
+                                            }
+                                        }.scrollTargetLayout()
+                                    }.cornerRadius(16)
+                                        .scrollTargetBehavior(.viewAligned).frame(maxWidth: .infinity)
+                                }.frame(maxWidth: geometry.size.width).padding(.top, 20)
+                                    .padding(.horizontal, 50)
                             }//vstack
                         }
                         //Ambient Sounds
@@ -331,13 +409,12 @@ struct ContentView: View {
                                             
                                             ForEach(data.sounds[validStartIndex..<validEndIndex]) { sound in
                                                 ZStack {
-                                                    Image(sound.imageName)
+                                                    Image(sound.imageName + "_low")
                                                         .resizable()
                                                         .scaledToFill()
                                                         .aspectRatio(contentMode: .fill)
-                                                        .blur(radius: 4,opaque: true)
                                                         .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
-                                                        .frame(maxWidth: 500)
+                                                        .blur(radius: 4,opaque: true)
                                                     Rectangle()
                                                         .fill(Color.black.opacity(0.4))
                                                         .ignoresSafeArea()
@@ -409,12 +486,12 @@ struct ContentView: View {
                                             
                                             ForEach(data.sounds[validStartIndex..<validEndIndex]) { sound in
                                                 ZStack {
-                                                    Image(sound.imageName)
+                                                    Image(sound.imageName + "_low")
                                                         .resizable()
                                                         .scaledToFill()
                                                         .aspectRatio(contentMode: .fill)
-                                                        .blur(radius: 4,opaque: true)
                                                         .frame(width: geometry.size.width , height: 350)
+                                                        .blur(radius: 4,opaque: true)
                                                     Rectangle()
                                                         .fill(Color.black.opacity(0.4))
                                                         .ignoresSafeArea()
@@ -463,13 +540,12 @@ struct ContentView: View {
                                             
                                             ForEach(data.sounds[validStartIndex..<validEndIndex]) { sound in
                                                 ZStack {
-                                                    Image(sound.imageName)
+                                                    Image(sound.imageName + "_low")
                                                         .resizable()
                                                         .scaledToFill()
                                                         .aspectRatio(contentMode: .fill)
-                                                        .blur(radius: 4,opaque: true)
                                                         .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
-                                                        .frame(maxWidth: 500)
+                                                        .blur(radius: 4,opaque: true)
                                                     Rectangle()
                                                         .fill(Color.black.opacity(0.4))
                                                         .ignoresSafeArea()
@@ -542,13 +618,12 @@ struct ContentView: View {
                                             
                                             ForEach(data.sounds[validStartIndex..<validEndIndex]) { sound in
                                                 ZStack {
-                                                    Image(sound.imageName)
+                                                    Image(sound.imageName + "_low")
                                                         .resizable()
                                                         .scaledToFill()
                                                         .aspectRatio(contentMode: .fill)
-                                                        .blur(radius: 4,opaque: true)
                                                         .frame(width: min(max(geometry.size.width * 0.295, 496), 500), height: 270)
-                                                        .frame(maxWidth: 500)
+                                                        .blur(radius: 4,opaque: true)
                                                     Rectangle()
                                                         .fill(Color.black.opacity(0.4))
                                                         .ignoresSafeArea()
@@ -602,12 +677,12 @@ struct ContentView: View {
                                             
                                             ForEach(data.sounds[validStartIndex..<validEndIndex]) { sound in
                                                 ZStack {
-                                                    Image(sound.imageName)
+                                                    Image(sound.imageName + "_low")
                                                         .resizable()
                                                         .scaledToFill()
                                                         .aspectRatio(contentMode: .fill)
-                                                        .blur(radius: 4,opaque: true)
                                                         .frame(width: geometry.size.width, height: 350)
+                                                        .blur(radius: 4,opaque: true)
                                                     Rectangle()
                                                         .fill(Color.black.opacity(0.4))
                                                         .ignoresSafeArea()
@@ -725,29 +800,34 @@ struct ContentView: View {
 
     // Audio control
     func playSound() {
-        stopSound()
-        
-        guard let url = URL(string: currentSound.audioURL) else {
-            print("Invalid URL")
-            return
+            stopSound() // Ensure any currently playing sound is stopped
+            
+            guard let url = URL(string: currentSound.audioURL) else {
+                print("Invalid URL")
+                return
+            }
+            
+            let playerItem = AVPlayerItem(url: url)
+            
+            // Use the existing player if the URL is the same
+            if let existingPlayer = player, lastAudioURL == url {
+                player = existingPlayer
+                if let lastPosition = lastPlaybackPosition {
+                    player?.seek(to: lastPosition)
+                }
+            } else {
+                // Otherwise, create a new player
+                player = AVPlayer(playerItem: playerItem)
+            }
+            
+            player?.play()
+            
+            // Retain the player in a property to keep it alive
+            self.lastAudioURL = url
+            
+            // Update play history
+            updateHistory(with: currentSound)
         }
-        
-        let playerItem = AVPlayerItem(url: url)
-        let player = AVPlayer(playerItem: playerItem)
-        
-        if lastAudioURL == url, let lastPosition = lastPlaybackPosition {
-            player.seek(to: lastPosition)
-        }
-        
-        player.play()
-        
-        // Retain the player in a property to keep it alive
-        self.player = player
-        self.lastAudioURL = url
-        
-        // Update play history
-        updateHistory(with: currentSound)
-    }
 
     func stopSound() {
         if let player = player {
@@ -792,5 +872,5 @@ struct ContentView: View {
                 }
             }
         }
+    
 }//view
-

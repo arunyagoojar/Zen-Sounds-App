@@ -221,5 +221,30 @@
     "location": "Mafia III",
     "imageName": "WBYU",
     "audioURL": "https://zensounds.blob.core.windows.net/zen/WBYU-620.mp3"
-  }
+  },
+  
+  {
+    "title": "ॐ",
+    "location": "om",
+    "imageName": "shiva",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/om.mp3"
+  },
+  {
+    "title": "Vishnu's Sanctuary",
+    "location": "The Temple of Vishnu",
+    "imageName": "vishnu",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/vishnu.mp3"
+  },
+  {
+    "title": "Flute of Love",
+    "location": "Krishna's Lullaby",
+    "imageName": "krishna",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/krishna.mp3"
+  },
+  {
+    "title": "Meditative Escape",
+    "location": "Tiny Lotus",
+    "imageName": "tibet",
+    "audioURL": "https://zensounds.blob.core.windows.net/zen/tibet.mp3"
+  },
 ]
